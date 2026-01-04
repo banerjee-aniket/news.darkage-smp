@@ -1,8 +1,70 @@
-<section style="width:100%; height:100vh;">
-  <iframe
-    src="https://secure-content-hub.vercel.app/"
-    style="width:100%; height:100%; border:none;"
-    loading="lazy"
-    referrerpolicy="no-referrer"
-  ></iframe>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DarkAge SMP — News, Lore & Events</title>
+
+  <!-- Favicon -->
+  <link
+    rel="icon"
+    type="image/png"
+    href="https://darkage-smp.vercel.app/darkage_logo.png"
+  />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    /* Reset everything */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+
+    #app {
+      width: 100vw;
+      height: 100vh;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <script>
+    (function () {
+      const app = document.getElementById("app");
+
+      const iframe = document.createElement("iframe");
+      iframe.src = "https://secure-content-hub.vercel.app/";
+      iframe.loading = "lazy";
+      iframe.referrerPolicy = "no-referrer";
+
+      app.appendChild(iframe);
+
+      // Ensure full canvas coverage on resize
+      function resize() {
+        iframe.style.width = window.innerWidth + "px";
+        iframe.style.height = window.innerHeight + "px";
+      }
+
+      window.addEventListener("resize", resize);
+      resize();
+    })();
+  </script>
+</body>
+</html>
